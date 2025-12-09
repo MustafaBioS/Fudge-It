@@ -7,10 +7,12 @@ func _ready() -> void:
 		spawn_pos = $".".get_children()
 	
 func spawn():
-	var index = randi() % spawn_pos.size()
-	var Chocolate = chocolate.instantiate()
-	Chocolate.global_position = spawn_pos[index].global_position
-	add_child(Chocolate)
+	if State.paused == false:
+		var index = randi() % spawn_pos.size()
+		var Chocolate = chocolate.instantiate()
+		Chocolate.global_position = spawn_pos[index].global_position
+		add_child(Chocolate)
 
 func _on_timer_timeout() -> void:
-	spawn()
+	if State.paused == false:
+		spawn()
