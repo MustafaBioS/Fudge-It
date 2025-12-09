@@ -1,9 +1,15 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED = 500.0
 const JUMP_VELOCITY = -400.0
+	
+func player():
+	pass
 
+func _process(delta: float) -> void:
+	print(State.score)
+	
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("a", "d")
 	if direction:

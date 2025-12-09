@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dighc43vxlawv"]
+[gd_scene load_steps=13 format=3 uid="uid://dighc43vxlawv"]
 
 [ext_resource type="Texture2D" uid="uid://g2u6b8d5i7fk" path="res://Assets/New free backgrounds part5/background 1/1.png" id="1_5ukr8"]
 [ext_resource type="Script" uid="uid://kwxwawxig0pc" path="res://Scripts/parallax.gd" id="1_k7acu"]
@@ -8,9 +8,14 @@
 [ext_resource type="Texture2D" uid="uid://bud6oqxqqmkfy" path="res://Assets/New free backgrounds part5/background 1/5.png" id="5_0fj1v"]
 [ext_resource type="Texture2D" uid="uid://bt8u13mqhyhsy" path="res://Assets/New free backgrounds part5/background 1/6.png" id="6_ikia7"]
 [ext_resource type="Texture2D" uid="uid://c3cl3um21ogck" path="res://Assets/cart.png" id="7_o06y3"]
+[ext_resource type="Script" uid="uid://bnox8e6ndmv2t" path="res://Scripts/player.gd" id="8_5v1tr"]
+[ext_resource type="PackedScene" uid="uid://c4ce3lyjiayn4" path="res://Scenes/spawner.tscn" id="11_ikia7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v0iea"]
 size = Vector2(527, 373)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5v1tr"]
+size = Vector2(20, 333)
 
 [node name="World" type="Node2D"]
 
@@ -70,8 +75,9 @@ position = Vector2(288, 162)
 texture = ExtResource("6_ikia7")
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(170, 293)
+position = Vector2(170, 303.1)
 scale = Vector2(0.1, 0.1)
+script = ExtResource("8_5v1tr")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 texture = ExtResource("7_o06y3")
@@ -80,6 +86,17 @@ texture = ExtResource("7_o06y3")
 position = Vector2(-1.5, 19.5)
 shape = SubResource("RectangleShape2D_v0iea")
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-limit_left = 0
-limit_bottom = 324
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(288, 162)
+
+[node name="Barriers" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barriers"]
+position = Vector2(-10, 156.5)
+shape = SubResource("RectangleShape2D_5v1tr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Barriers"]
+position = Vector2(586, 157)
+shape = SubResource("RectangleShape2D_5v1tr")
+
+[node name="Spawner" parent="." instance=ExtResource("11_ikia7")]

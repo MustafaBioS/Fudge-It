@@ -1,0 +1,92 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4ce3lyjiayn4"]
+
+[ext_resource type="Script" uid="uid://crju1leybufye" path="res://Scripts/spawn.gd" id="1_2bop2"]
+
+[node name="Spawner" type="Node2D"]
+
+[node name="Spawn" type="Node2D" parent="."]
+script = ExtResource("1_2bop2")
+
+[node name="Marker2D" type="Marker2D" parent="Spawn"]
+position = Vector2(15, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="Spawn"]
+position = Vector2(38, 0)
+
+[node name="Marker2D3" type="Marker2D" parent="Spawn"]
+position = Vector2(62, 0)
+
+[node name="Marker2D4" type="Marker2D" parent="Spawn"]
+position = Vector2(85, 0)
+
+[node name="Marker2D5" type="Marker2D" parent="Spawn"]
+position = Vector2(107, 0)
+
+[node name="Marker2D6" type="Marker2D" parent="Spawn"]
+position = Vector2(130, 0)
+
+[node name="Marker2D7" type="Marker2D" parent="Spawn"]
+position = Vector2(154, 0)
+
+[node name="Marker2D8" type="Marker2D" parent="Spawn"]
+position = Vector2(177, 0)
+
+[node name="Marker2D9" type="Marker2D" parent="Spawn"]
+position = Vector2(196, 0)
+
+[node name="Marker2D10" type="Marker2D" parent="Spawn"]
+position = Vector2(219, 0)
+
+[node name="Marker2D11" type="Marker2D" parent="Spawn"]
+position = Vector2(243, 0)
+
+[node name="Marker2D12" type="Marker2D" parent="Spawn"]
+position = Vector2(266, 0)
+
+[node name="Marker2D13" type="Marker2D" parent="Spawn"]
+position = Vector2(282, 0)
+
+[node name="Marker2D14" type="Marker2D" parent="Spawn"]
+position = Vector2(305, 0)
+
+[node name="Marker2D15" type="Marker2D" parent="Spawn"]
+position = Vector2(329, 0)
+
+[node name="Marker2D16" type="Marker2D" parent="Spawn"]
+position = Vector2(352, 0)
+
+[node name="Marker2D17" type="Marker2D" parent="Spawn"]
+position = Vector2(368, 0)
+
+[node name="Marker2D18" type="Marker2D" parent="Spawn"]
+position = Vector2(391, 0)
+
+[node name="Marker2D19" type="Marker2D" parent="Spawn"]
+position = Vector2(415, 0)
+
+[node name="Marker2D20" type="Marker2D" parent="Spawn"]
+position = Vector2(438, 0)
+
+[node name="Marker2D21" type="Marker2D" parent="Spawn"]
+position = Vector2(455, 0)
+
+[node name="Marker2D22" type="Marker2D" parent="Spawn"]
+position = Vector2(478, 0)
+
+[node name="Marker2D23" type="Marker2D" parent="Spawn"]
+position = Vector2(502, 0)
+
+[node name="Marker2D24" type="Marker2D" parent="Spawn"]
+position = Vector2(525, 0)
+
+[node name="Marker2D25" type="Marker2D" parent="Spawn"]
+position = Vector2(543, 0)
+
+[node name="Marker2D26" type="Marker2D" parent="Spawn"]
+position = Vector2(567, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="Spawn" method="_on_timer_timeout"]
