@@ -1,6 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://5lb7gnfeios"]
+[gd_scene load_steps=8 format=3 uid="uid://5lb7gnfeios"]
 
 [ext_resource type="Texture2D" uid="uid://dwie2u0lcp7hd" path="res://Assets/New free backgrounds part5/background 1/orig.png" id="1_1rerr"]
+[ext_resource type="Script" uid="uid://7c87gxqbv0p3" path="res://Scripts/menu.gd" id="1_cayip"]
+[ext_resource type="FontFile" uid="uid://eswe8xr4ogbl" path="res://Assets/Fonts/Minecraft.ttf" id="2_xhh6f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xhh6f"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_158mb"]
+bg_color = Color(0.5449743, 0.54497427, 0.54497445, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cayip"]
+bg_color = Color(0.74978, 0.74978, 0.74977994, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xhh6f"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -9,6 +34,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_cayip")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -26,4 +52,82 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.23529412)
+color = Color(0, 0, 0, 0.39215687)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -87.5
+offset_top = 36.0
+offset_right = 87.5
+offset_bottom = 87.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_xhh6f")
+theme_override_font_sizes/font_size = 50
+text = "Fudge It"
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5625
+offset_top = -42.0
+offset_right = 58.5625
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Play" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_xhh6f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_158mb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cayip")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xhh6f")
+text = "Play"
+
+[node name="Options" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_xhh6f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_158mb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cayip")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xhh6f")
+text = "Options"
+
+[node name="Exit" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_xhh6f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_158mb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cayip")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xhh6f")
+text = "Exit"
+
+[connection signal="pressed" from="Buttons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Buttons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Buttons/Exit" to="." method="_on_exit_pressed"]

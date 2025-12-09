@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dighc43vxlawv"]
+[gd_scene load_steps=15 format=3 uid="uid://dighc43vxlawv"]
 
 [ext_resource type="Texture2D" uid="uid://g2u6b8d5i7fk" path="res://Assets/New free backgrounds part5/background 1/1.png" id="1_5ukr8"]
 [ext_resource type="Script" uid="uid://kwxwawxig0pc" path="res://Scripts/parallax.gd" id="1_k7acu"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bt8u13mqhyhsy" path="res://Assets/New free backgrounds part5/background 1/6.png" id="6_ikia7"]
 [ext_resource type="Texture2D" uid="uid://c3cl3um21ogck" path="res://Assets/cart.png" id="7_o06y3"]
 [ext_resource type="Script" uid="uid://bnox8e6ndmv2t" path="res://Scripts/player.gd" id="8_5v1tr"]
+[ext_resource type="FontFile" uid="uid://eswe8xr4ogbl" path="res://Assets/Fonts/Minecraft.ttf" id="11_7yui6"]
 [ext_resource type="PackedScene" uid="uid://c4ce3lyjiayn4" path="res://Scenes/spawner.tscn" id="11_ikia7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v0iea"]
@@ -16,6 +17,8 @@ size = Vector2(527, 373)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5v1tr"]
 size = Vector2(20, 333)
+
+[sub_resource type="GDScript" id="GDScript_ikia7"]
 
 [node name="World" type="Node2D"]
 
@@ -100,3 +103,36 @@ position = Vector2(586, 157)
 shape = SubResource("RectangleShape2D_5v1tr")
 
 [node name="Spawner" parent="." instance=ExtResource("11_ikia7")]
+
+[node name="Score" type="Label" parent="."]
+offset_left = 519.0
+offset_top = 19.0
+offset_right = 547.0
+offset_bottom = 70.0
+theme_override_fonts/font = ExtResource("11_7yui6")
+theme_override_font_sizes/font_size = 50
+text = "0"
+script = SubResource("GDScript_ikia7")
+
+[node name="Pause" type="CanvasLayer" parent="."]
+
+[node name="Background" type="ColorRect" parent="Pause"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.39215687)
+
+[node name="Label" type="Label" parent="Pause"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -87.5
+offset_top = 36.0
+offset_right = 87.5
+offset_bottom = 87.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("11_7yui6")
+theme_override_font_sizes/font_size = 50
+text = "Paused"
